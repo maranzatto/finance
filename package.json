@@ -2,7 +2,7 @@
   "name": "finance-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://maranzatto.github.io/Financie/",
+  "homepage": "https://maranzatto.github.io/finance/",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",

@@ -77,7 +77,7 @@ function AppContent() {
 
 function App() {
   return (
-    <Router basename="/Financie"> {/* <-- BASENAME AJUSTADO PARA GITHUB PAGES */}
+    <Router basename="/finance"> {/* <-- BASENAME AJUSTADO PARA GITHUB PAGES */}
       <AuthProvider>
         <SelectedAccountProvider>
           <AppContent />
