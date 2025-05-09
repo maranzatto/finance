@@ -1,0 +1,117 @@
+
+.accounts-page-container {
+  padding: 20px;
+  /* background-color: var(--background-primary); /* Já herdado do body */
+  /* color: var(--text-primary); /* Já herdado do body */
+}
+
+.accounts-page-container h2 {
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  text-align: left; /* Ou center, dependendo da preferência */
+}
+
+
+.btn-add-account {
+  margin-bottom: 25px; /* Aumentar um pouco a margem */
+  /* Estilos de .btn e .btn-primary virão de App.css */
+}
+
+.accounts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0; /* Reset default ul margin */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 20px; /* Espaçamento entre os cards */
+  margin-top: 20px;
+}
+
+.account-item {
+  position: relative; /* Necessário para posicionamento absoluto do filho */
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  padding: 20px; /* Aumentar padding geral */
+  margin-bottom: 15px; 
+  border-radius: 8px; /* Levemente mais arredondado */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* Sombra um pouco mais pronunciada */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Alinha itens ao topo */
+  gap: 20px; /* Espaço entre detalhes e ações */
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out; /* Smooth transition */
+}
+
+.account-item:hover {
+  background-color: var(--background-hover, rgba(var(--accent-rgb), 0.08));
+  border-left-color: var(--accent-primary);
+}
+
+.account-item.selected {
+  background-color: var(--background-highlight, rgba(var(--accent-rgb), 0.15));
+  border-left: 4px solid var(--accent-primary);
+  padding-left: calc(20px - 3px); /* Ajusta o padding para compensar a borda mais grossa (1px original + 3px adicionais) */
+}
+
+.account-item.selected:hover {
+  background-color: var(--background-highlight-hover, rgba(var(--accent-rgb), 0.22)); /* Um pouco mais escuro no hover quando selecionado */
+  border-left-color: var(--accent-primary); /* Mantém a cor da borda */
+}
+
+.account-item-details {
+  flex-grow: 1;
+  /* margin-bottom removido, o gap do flex pai cuida disso se necessário */
+}
+
+.account-item-details strong {
+  font-size: 1.3rem; /* Adjusted for Poppins */
+  font-weight: 600;
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.account-item-details .meta-info {
+  display: block; 
+  font-size: 0.85rem; /* Adjusted for Poppins */
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+.account-item-details .meta-info:last-child {
+  margin-bottom: 0;
+}
+
+/* Quando o item da conta está selecionado, ajuste o padding esquerdo dos detalhes para dar espaço ao ícone */
+.account-item.selected .account-item-details {
+  /* O .account-item.selected já tem padding-left: calc(20px - 3px) = 17px. 
+     O ícone (left: 8px, font-size: 1.2rem ~ 19px) ocupa de 8px a ~27px. 
+     Queremos que o texto comece depois de ~27px, digamos 32px.
+     O deslocamento adicional necessário para o texto é 32px - 17px (padding atual do container) = 15px. */
+  padding-left: 15px; 
+}
+
+.account-item-actions {
+  display: flex;
+  flex-direction: row; /* Ícones lado a lado */
+  gap: 12px; /* Espaço entre ícones */
+  align-items: center; /* Alinha ícones verticalmente se tiverem alturas diferentes */
+  align-self: flex-end; /* Alinha a caixa de ações na parte inferior do card */
+}
+
+.account-item-actions button {
+  margin-left: 5px;
+}
+
+.selected-account-check-icon {
+  position: absolute;
+  top: 8px; /* Reduzido e ajustado */
+  left: 8px; /* Reduzido e ajustado */
+  color: var(--accent-primary);
+  font-size: 1.2rem; /* Reduzido */
+  z-index: 1;
+}
+
+/* Os botões .btn-edit e .btn-delete já são estilizados globalmente em App.css
+   e com .btn-icon-square para tamanho e padding. */

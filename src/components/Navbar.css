@@ -1,0 +1,217 @@
+.navbar {
+  background-color: var(--background-secondary);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand a {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-brand a:hover {
+  color: var(--accent-primary);
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px; /* Espaçamento entre os links */
+}
+
+.navbar-nav .nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 0; /* Padding para aumentar a área de clique e alinhar com o botão */
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--text-primary);
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--accent-primary);
+  font-weight: bold;
+  border-bottom: 2px solid var(--accent-primary);
+}
+
+.navbar-user-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar-user-email {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* O botão .btn-logout usará estilos de .btn e .btn-secondary de App.css */
+/* Podemos adicionar ajustes específicos se necessário, por exemplo, tamanho menor */
+/* ... (estilos existentes) ... */
+
+/* Estilos para a informação do usuário e saldo */
+.navbar-user-info {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Espaço entre o saldo e a seção de usuário/logout */
+  margin-left: auto; /* Empurra para a direita no desktop */
+}
+
+.navbar-balance {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: rgba(var(--accent-rgb), 0.1); /* Um fundo sutil com a cor de destaque */
+  border-radius: var(--border-radius-small);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  white-space: nowrap; /* Evita quebra de linha */
+}
+
+.balance-label {
+  font-weight: 500;
+  margin-right: 8px;
+  color: var(--text-secondary);
+}
+
+.balance-value {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.balance-value.loading {
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.balance-value.negative {
+  color: var(--error-color); /* Cor para saldos negativos */
+}
+
+.navbar-user-section {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* Espaço entre email e botão de logout */
+}
+
+/* Estilos para o ícone do menu mobile (hamburger) */
+.mobile-menu-icon {
+  display: none; /* Escondido por padrão em telas maiores */
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  z-index: 1100; /* Para ficar acima de outros elementos da navbar */
+}
+
+/* Estilos base para .navbar-links (que agrupa .navbar-nav e .navbar-user-section) */
+.navbar-links {
+  display: flex; /* Mantém o layout flexível para telas maiores */
+  align-items: center;
+  gap: 20px; /* Espaçamento entre .navbar-nav e .navbar-user-section */
+}
+
+
+/* Media Query para telas menores */
+@media (max-width: 768px) {
+  .navbar-links {
+    /* display: none; // Controlado pela classe .open */
+    flex-direction: column;
+    /* align-items: flex-start; // Modificado para centralizar */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    position: fixed; /* Cobre a tela inteira */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Largura total da viewport */
+    height: 100vh; /* Altura total da viewport */
+    background-color: var(--background-secondary); /* Ou uma cor mais escura para overlay */
+    /* padding: 20px; // Removido ou ajustado se necessário para centralização */
+    /* border-top: 1px solid var(--border-color); // Pode não ser necessário para tela cheia */
+    /* box-shadow: 0 4px 6px rgba(0,0,0,0.1); // Pode não ser necessário para tela cheia */
+    z-index: 1000; /* Garante que o menu mobile fique sobre o conteúdo da página */
+    transform: translateX(-100%); /* Começa fora da tela à esquerda */
+    transition: transform 0.3s ease-in-out;
+    display: flex; /* Precisa ser flex para que transform funcione e para alinhar itens */
+  }
+
+  .navbar-links.open {
+    /* display: flex; // Já é flex acima */
+    transform: translateX(0); /* Entra na tela */
+  }
+
+  .navbar-nav {
+    flex-direction: column; 
+    width: auto; /* Ajusta para o conteúdo dos links */
+    gap: 15px; /* Espaçamento entre os links */
+    text-align: center; /* Centraliza o texto dos links */
+  }
+
+  .navbar-nav .nav-link {
+    padding: 10px 0; 
+    width: 100%;
+    border-bottom: none; /* Remove bordas inferiores entre links, estilo diferente para tela cheia */
+    font-size: 1.5rem; /* Aumenta o tamanho da fonte para tela cheia */
+  }
+  
+  .navbar-nav .nav-link.active {
+    border-bottom: 2px solid var(--accent-primary); /* Mantém destaque do link ativo, pode ser ajustado */
+  }
+
+  /* ESTILOS RESPONSIVOS PARA SALDO E INFO DO USUÁRIO ADICIONADOS AQUI */
+  .navbar-user-info {
+    flex-direction: column;
+    align-items: center; /* Centralizado no mobile */
+    gap: 15px;
+    width: auto; /* Ajustar para o conteúdo */
+    padding: 20px 0; 
+    margin-left: 0;
+    margin-top: 20px; /* Espaço acima da info do usuário no menu mobile */
+    border-top: 1px solid var(--border-color); /* Separador */
+  }
+
+  .navbar-balance {
+    width: auto; /* Ajusta para o conteúdo */
+    padding: 8px 15px; /* Padding ajustado */
+    order: -1; /* Faz o saldo aparecer acima da seção do usuário no mobile */
+    margin-bottom: 15px; /* Espaço abaixo do saldo */
+  }
+
+  .navbar-user-section {
+    flex-direction: column; 
+    align-items: center; /* Centraliza a seção do usuário */
+    width: auto; /* Ajusta para o conteúdo */
+    margin-top: 0; /* Reset margin-top, pois o container pai já tem */
+    padding-top: 0; /* Reset padding-top */
+    border-top: none; /* Remove borda, o container pai já tem */
+  }
+  /* FIM DOS ESTILOS ADICIONADOS */
+
+  .navbar-user-email {
+    margin-bottom: 15px; 
+    font-size: 1rem;
+  }
+
+  .btn-logout {
+    width: auto; /* Ajustar para o conteúdo do botão */
+    padding: 10px 20px; /* Padding padrão do botão */
+    text-align: center;
+  }
+
+  .mobile-menu-icon {
+    display: block; 
+    /* O ícone de fechar (FaTimes) já está na navbar, pode ser necessário reposicioná-lo 
+       ou adicionar um específico para o menu de tela cheia se o atual não ficar bom. 
+       Por enquanto, o ícone na barra superior controlará o estado. */
+  }
+}

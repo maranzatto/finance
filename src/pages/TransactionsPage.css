@@ -1,0 +1,155 @@
+/* Styles for TransactionsPage and TransactionForm */
+
+.transaction-form {
+    background-color: var(--background-secondary); /* Dark theme background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Adjusted shadow for dark */
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--text-secondary); /* Dark theme text */
+}
+
+/* Input styles are now primarily handled by global App.css */
+/* Keep this selector if there are specific overrides needed for this form only */
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    /* padding, border, border-radius, box-sizing, font-size are global */
+    /* background-color, color are global */
+    /* margin-bottom is global for inputs */
+}
+
+.form-group textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.form-error {
+    color: var(--error-color); /* Dark theme error text */
+    background-color: var(--expense-bg-light); /* Dark theme error background */
+    border: 1px solid var(--error-color); /* Dark theme error border */
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.form-actions {
+    margin-top: 25px; /* Consistente com AccountForm */
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; /* Espaçamento entre botões */
+}
+
+/* Estilos básicos para botões - .btn, .btn-primary, .btn-secondary são globais em App.css */
+/* Removendo duplicatas */
+
+/* Adicionaremos estilos para a lista de transações aqui depois */
+
+/* Estilos para a página de transações e lista */
+.transactions-page { /* Classe para o container principal da página, se você adicionar um */
+    padding: 20px; /* Exemplo, ajuste conforme necessário */
+}
+
+.page-error {
+    color: var(--error-color);
+    background-color: var(--expense-bg-light);
+    border: 1px solid var(--error-color);
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-align: left; /* Para o caso de múltiplas linhas de erro */
+}
+
+.add-transaction-btn {
+    margin-bottom: 25px; /* Padronizado com AccountsPage */
+    /* display: block;  Você pode descomentar e ajustar se quiser centralizá-lo */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+}
+
+.transactions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Reset default ul margin */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Espaçamento entre os cards */
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinha itens ao topo para melhor layout com valor absoluto */
+    padding: 20px; /* Aumentar padding para acomodar o valor destacado */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: var(--background-secondary);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative; /* Necessário para posicionamento absoluto do valor */
+}
+
+.transaction-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* O padding-top garante que não sobreponha o valor posicionado absolutamente */
+    padding-top: 50px; /* Ajustar este valor conforme o tamanho do .transaction-amount */
+}
+
+.transaction-description {
+    font-size: 1.2rem; /* Adjusted for Poppins */
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.transaction-date,
+.transaction-category {
+    font-size: 0.8rem; /* Adjusted for Poppins */
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.transaction-amount {
+    font-size: 1.8rem; /* Valor bem destacado */
+    font-weight: 700; /* Bold */
+    position: absolute;
+    top: 15px; /* Ajustar conforme necessário */
+    left: 20px; /* Ajustar conforme necessário */
+    /* As cores de income/expense já são aplicadas por classes específicas (.income, .expense) */
+}
+
+/* Cores para receita/despesa no valor */
+.transaction-item.income .transaction-amount {
+    color: var(--income-color);
+}
+
+.transaction-item.expense .transaction-amount {
+    color: var(--expense-color);
+}
+
+.transaction-actions {
+    display: flex;
+    flex-direction: row; /* Ícones lado a lado */
+    gap: 12px; /* Espaço entre ícones */
+    align-items: center; /* Restaurado */
+    align-self: flex-end; /* Restaurado - Alinha a caixa de ações na parte inferior do card */
+    /* .btn-edit e .btn-delete foram removidos daqui pois agora usam .btn-secondary e .btn-danger de App.css
+   e .btn-icon-square para tamanho e padding. O espaçamento é dado pelo 'gap' em .transaction-actions. */
+}
+/* .btn-edit e .btn-delete foram removidos daqui pois agora usam .btn-secondary e .btn-danger de App.css */
