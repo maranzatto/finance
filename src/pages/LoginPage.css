@@ -1,0 +1,121 @@
+.login-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Para ocupar toda a altura da tela */
+  padding: 20px;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+
+.login-form-container {
+  background-color: var(--background-secondary);
+  padding: 30px 40px; /* Aumentar padding */
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
+  width: 100%;
+  max-width: 400px; /* Limitar largura máxima */
+  text-align: center; /* Centralizar texto dentro do container */
+}
+
+.login-form-container h2 {
+  color: var(--text-primary);
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+.login-page-error {
+  color: var(--error-color);
+  background-color: rgba(var(--error-rgb), 0.1); /* Fundo levemente avermelhado */
+  border: 1px solid var(--error-color);
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: left; /* Erro alinhado à esquerda dentro da caixa */
+  font-size: 0.9rem;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+  text-align: left; /* Alinhar labels à esquerda */
+  font-weight: bold;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 12px; /* Aumentar padding interno */
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg); /* Usar variável se definida, ou --background-primary */
+  color: var(--text-primary);
+  border-radius: 4px;
+  box-sizing: border-box; /* Para padding não afetar largura total */
+  font-size: 1rem;
+}
+
+.login-form input[type="email"]:focus,
+.login-form input[type="password"]:focus {
+  border-color: var(--accent-primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.2);
+}
+
+/* Botão de submit principal já usa .btn .btn-primary */
+.login-form .btn-submit {
+  width: 100%;
+  padding: 12px; /* Botão maior */
+  font-size: 1.1rem; /* Texto maior */
+  margin-top: 10px; /* Espaço antes do botão */
+}
+
+.login-toggle-button {
+  background: none;
+  border: none;
+  color: var(--accent-primary);
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 25px; /* Aumentar espaço */
+  font-size: 0.95rem;
+  padding: 5px;
+}
+
+.login-toggle-button:hover {
+  color: var(--text-primary);
+}
+
+.login-toggle-button:disabled {
+  color: var(--text-secondary);
+  text-decoration: none;
+  cursor: not-allowed;
+}
+
+/* Estilos para o checkbox "Manter Conectado" */
+.form-group-checkbox {
+  display: flex;
+  align-items: center; /* Alinha o checkbox e o label verticalmente */
+  margin-top: 10px; /* Espaço acima */
+  margin-bottom: 20px; /* Espaço abaixo antes do botão de submit */
+  /* Herda o comportamento de .form-group se necessário para espaçamento horizontal */
+}
+
+.form-group-checkbox input[type="checkbox"] {
+  margin-right: 10px; /* Espaço entre o checkbox e o label */
+  width: auto; /* Garante que não pegue a largura total do .form-group input */
+  height: auto; /* Garante que não pegue a altura total do .form-group input */
+  accent-color: var(--accent-primary); /* Estiliza o checkbox com a cor de destaque do tema */
+  vertical-align: middle; /* Melhor alinhamento com o texto do label */
+  cursor: pointer;
+}
+
+.form-group-checkbox .checkbox-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary); /* Cor do label consistente com o tema */
+  cursor: pointer;
+  user-select: none; /* Impede a seleção do texto do label ao clicar */
+  margin-bottom: 0; /* Remove margem inferior padrão do label */
+  line-height: 1; /* Garante que o alinhamento com o checkbox seja mais preciso */
+}

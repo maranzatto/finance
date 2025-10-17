@@ -1,0 +1,82 @@
+.account-form-container {
+  background-color: var(--background-secondary);
+  padding: 25px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  margin-top: 20px;
+  margin-bottom: 30px;
+  border: 1px solid var(--border-color);
+}
+
+.account-form-container h4 {
+  color: var(--text-primary);
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.account-form-error {
+  color: var(--error-color);
+  background-color: rgba(var(--error-rgb), 0.1);
+  border: 1px solid var(--error-color);
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group select:focus {
+  border-color: var(--accent-primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.2);
+}
+
+.form-group small {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.form-actions {
+  margin-top: 25px;
+  display: flex;
+  justify-content: flex-end; /* Alinhar botões à direita */
+  gap: 10px; /* Espaço entre os botões */
+}
+
+/* Botões usarão .btn, .btn-primary, .btn-secondary de App.css */
+/* O .btn-submit é uma classe adicional para o botão principal do formulário, se necessário */
+.form-actions .btn {
+  min-width: 100px; /* Largura mínima para os botões */
+}

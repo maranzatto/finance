@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --background-primary: #1a1a1a;
+  --background-secondary: #2c2c2c;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --accent-primary: #39FF14;
+  --accent-rgb: 57, 255, 20; /* Added for LoginPage input focus */
+  --border-color: #3A3A3A;
+  --success-color: #28a745;
+  --error-color: #dc3545;
+  --error-rgb: 220, 53, 69; /* Added for LoginPage error background */
+  --button-primary-bg: var(--accent-primary);
+  --button-primary-text: #ffffff;
+  --link-color: var(--accent-primary); /* Mantendo o azul claro para links que já existia */
+  --input-bg: var(--background-primary); /* Added for LoginPage inputs */
+
+  /* Cores específicas para despesa/receita (podemos refinar) */
+  --expense-color: var(--error-color);
+  --income-color: var(--success-color);
+  --expense-bg-light: rgba(220, 53, 69, 0.1); /* Fundo sutil para despesa */
+  --income-bg-light: rgba(40, 167, 69, 0.1);  /* Fundo sutil para receita */
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  text-align: center;
+  /* background-color: var(--background-primary); Já definido no body */
+  /* color: var(--text-primary); Já definido no body */
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  /* background-color: #282c34; Substituído por variáveis globais */
+  background-color: var(--background-secondary); /* Usando uma cor de fundo secundária para o header */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  /* color: white; Substituído por variável global */
+  color: var(--text-primary);
+  padding: 20px; /* Adicionado padding para não colar nas bordas */
+  box-sizing: border-box;
+}
+
+.App-link {
+  color: var(--link-color);
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estilos Globais para botões - Podemos expandir aqui */
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-decoration: none; /* Para caso de links estilizados como botões */
+  display: inline-block; /* Para links se comportarem como botões */
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+}
+
+.btn-primary:hover {
+  background-color: #2EDD11; /* Verde mais escuro para hover */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Outros estilos de botões podem ser definidos aqui usando variáveis */
+.btn-secondary {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+.btn-secondary:hover {
+  background-color: #3a3a3a; /* Ligeiramente mais claro ou escuro que --background-secondary */
+}
+
+/* Estilo para botões de exclusão/perigo */
+.btn-danger {
+  background-color: var(--error-color);
+  color: var(--button-primary-text);
+  border: 1px solid var(--error-color);
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+  background-color: rgba(var(--error-rgb), 0.85); 
+  border-color: rgba(var(--error-rgb), 0.85);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Style for square icon buttons, often used in cards */
+.btn-icon-square {
+  width: 36px; /* Adjust size as needed */
+  height: 36px; /* Adjust size as needed */
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.btn-icon-square svg {
+  font-size: 1.1rem; /* Adjust icon size as needed */
+  /* vertical-align: middle; /* Usually not needed with flex centering */
+}
+
+/* Adaptações para inputs globais se necessário */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  border-radius: 4px;
+  box-sizing: border-box; /* Para padding não aumentar o tamanho total */
+  width: 100%; /* Ocupa a largura do container, mas pode ser ajustado */
+  margin-bottom: 10px; /* Espaçamento padrão */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.25); /* Glow sutil no foco com nova cor */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+/* Global Page Container for consistent layout */
+.page-container {
+  max-width: 1200px; /* Adjust as needed */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 25px; /* Consistent padding */
+  /* Example: to ensure it takes at least the viewport height minus navbar 
+  min-height: calc(100vh - 70px); /* Assuming navbar height is around 70px */
+}
+
+/* Global Page Status Styles */
+.page-loading,
+.page-no-data {
+  color: var(--text-secondary);
+  margin-top: 20px;
+  text-align: center;
+  font-style: italic;
+}
+
+.page-error {
+  color: var(--error-color);
+  background-color: var(--expense-bg-light); 
+  border: 1px solid var(--error-color);
+  padding: 15px;
+  border-radius: 5px;
+  margin: 20px 0;
+  text-align: left;
+}
